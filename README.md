@@ -1,6 +1,6 @@
-## Module 3. JS Core. Lesson 16. Exam
+## Module 3. JS Core. Lesson 16. Exam Test No1
 
 ### Structuring HTML, CSS and Javascript content. Optimization code
 ***
 
-### Exam Test No1
+### Exam Test
