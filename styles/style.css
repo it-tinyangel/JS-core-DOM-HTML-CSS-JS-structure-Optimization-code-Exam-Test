@@ -1,0 +1,346 @@
+:root {
+	/* COLORS */
+	--white: #fff;
+	--black: #000;
+	--light-gray: #d3d3d3;
+	--gray: slategray;
+	--dark-gray: #4b5968;
+	--orange: #ffa500;
+	--dark-orange: #ff8c00;
+	--blue: #6495ed;
+	--dark-blue: #4169e1;
+	--red: #ff0000;
+	--dark-red: #8b0000;
+	--green: green;
+	--dark-green: darkgreen;
+
+	--light-color: var(--white, white);
+	--dark-color: var(--black, black);
+	--light-gray-color: var(--lightgray, lightgray);
+	--orange-color: var(--orange, orange);
+	--dark-orange-color: var(--dark-orange, darkorange);
+	--blue-color: var(--blue, cornflowerblue);
+	--dark-blue-color: var(--dark-blue, royalblue);
+	--red-color: var(--red, red);
+	--dark-red-color: var(--dark-red, darkred);
+	--green-color: var(--sea-green, green);
+	--dark-green-color: var(--green, darkgreen);
+	--gray-color: var(--gray, slategray);
+	--dark-gray-color: var(--dark-gray, darkslategray);
+
+	--border-color: var(--gray-color);
+
+	/* SIZES */
+	--size-l: 1rem;
+	--size-m: .75rem;
+	--size-s: .5rem;
+	--size-xs: .25rem;
+
+	--large-spacing: var(--size-l);
+	--medium-spacing: var(--size-m);
+	--base-spacing: var(--size-s);
+	--small-spacing: var(--size-xs);
+
+	--border-width: 1px;
+	--border-radius: var(--small-spacing);
+
+	/* FONTS */
+	font-size: 16px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-family: "Josefin Sans", sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	box-sizing: inherit;
+}
+
+body {
+	max-width: 100vw;
+	min-height: 100vh;
+	display: grid;
+	gap: 20px;
+	color: var(--dark-color);
+	background-color: var(--light-color);
+}
+
+main.container {
+	min-width: 650px;
+	width: 70%;
+	margin: auto;
+}
+
+section.first {
+	width: auto;
+	display: grid;
+	gap: 20px;
+}
+
+div.block {
+	min-height: 250px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	gap: 5px;
+	position: relative;
+	border-radius: var(--border-radius);
+	background-color: var(--light-gray-color);
+}
+
+div.center-block {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+div.start-block {
+	display: flex;
+	gap: 10px;
+}
+
+div.edit-block {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+div.font-size,
+div.font-style {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+form {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+form>fieldset {
+	display: contents;
+}
+
+label,
+input:not:is([type="radio"], [type="checkbox"]) {
+	width: 100%;
+	height: 100%;
+	display: block;
+	font-family: inherit;
+	font-size: 100%;
+}
+
+select {
+	width: 100%;
+	height: 100%;
+	padding: 10px 15px;
+	font-size: 100%;
+	font-family: inherit;
+	word-break: normal;
+	appearance: none;
+	border-radius: var(--border-radius);
+}
+
+select#fontFamily.font-family {
+	max-width: 610px;
+	border: var(--border-width) solid var(--border-color);
+	background-image: none;
+	background-color: var(--light-color);
+}
+
+div.select-wrapper {
+	position: relative;
+}
+
+div.select-wrapper::after {
+	content: '<>';
+	font: 1rem "Consolas", monospace;
+	transform: rotate(90deg);
+	right: 5px;
+	top: 9px;
+	position: absolute;
+	pointer-events: none;
+}
+
+textarea.edit-area {
+	width: 100%;
+	min-height: 150px;
+	padding: 12px 20px;
+	border: 0;
+	outline: 0;
+	appearance: none;
+	border-radius: var(--border-radius);
+	border: var(--border-width) solid var(--border-color);
+	background-color: var(--light-color);
+	resize: none;
+}
+
+textarea.edit-area:focus-visible {
+	border: var(--border-width) solid var(--border-color);
+	outline: var(--blue-color) solid 2px;
+}
+
+.colors {
+	width: 150px;
+	height: 150px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	border-radius: var(--border-radius);
+}
+
+.color-box {
+	width: 48px;
+	height: 48px;
+	border-radius: var(--border-radius);
+	border: var(--border-width) solid var(--border-color);
+	transition: all 0.3s ease;
+}
+
+.color-box:hover {
+	width: 48px;
+	height: 48px;
+	border-radius: var(--border-radius);
+	border: var(--border-width) solid var(--border-color);
+}
+
+/* .color-box:nth-of-type(1) {
+	background-color: black;
+}
+
+.color-box:nth-of-type(2) {
+	background-color: gray;
+}
+
+.color-box:nth-of-type(3) {
+	background-color: white;
+}
+
+.color-box:nth-of-type(4) {
+	background-color: cyan;
+}
+
+.color-box:nth-of-type(5) {
+	background-color: magenta;
+}
+
+.color-box:nth-of-type(6) {
+	background-color: yellow;
+}
+
+.color-box:nth-of-type(7) {
+	background-color: red;
+}
+
+.color-box:nth-of-type(8) {
+	background-color: green;
+}
+
+.color-box:nth-of-type(9) {
+	background-color: blue;
+} */
+
+button {
+	width: 80px;
+	height: 30px;
+	padding: 5px;
+	display: block;
+	border: 0;
+	border-radius: var(--border-radius);
+	font-family: inherit;
+	font-size: 100%;
+	color: var(--light-color);
+}
+
+button.btn-edit {
+	color: var(--dark-color);
+	background-color: var(--orange-color);
+	transition: background-color 0.3s ease;
+}
+
+button.btn-edit:hover {
+	background-color: var(--dark-orange-color);
+	outline: 1px solid var(--dark-orange-color);
+}
+
+button.btn-style {
+	background-color: var(--blue-color);
+	transition: background-color 0.3s ease;
+}
+
+button.btn-style:hover {
+	background-color: var(--dark-blue-color);
+	outline: 1px solid var(--dark-blue-color);
+}
+
+button.btn-add {
+	background-color: var(--red-color);
+	transition: background-color 0.3s ease;
+}
+
+button.btn-add:hover {
+	background-color: var(--dark-red-color);
+	outline: 1px solid var(--dark-red-color);
+}
+
+button.btn-save {
+	background-color: var(--green-color);
+	transition: background-color 0.3s ease;
+}
+
+button.btn-save:hover {
+	background-color: var(--dark-green-color);
+	outline: 1px solid var(--dark-green-color);
+}
+
+button.btn-text-color,
+button.btn-bg-color {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	background-color: var(--gray-color);
+	transition: all 0.3s ease;
+}
+
+button.btn-text-color:hover,
+button.btn-bg-color:hover {
+	background-color: var(--dark-gray-color);
+	outline: 1px solid var(--dark-gray-color);
+}
+
+/* section.first, */
+/* section.second {
+	display: none;
+} */
+
+/* div.colors, */
+/* div.edit-block, */
+/* div.style-block {
+	display: none;
+} */
+
+.hide,
+.hidden,
+.visually-hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
