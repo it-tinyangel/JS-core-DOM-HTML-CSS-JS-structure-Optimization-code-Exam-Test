@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/style.css">
+	<title>Exam Test No1</title>
+</head>
+
+<body>
+	<main class="container">
+		<section class="first show">
+			<div class="block top-block">
+				<p>Lorem ipsum dolor sit amet.</p>
+				<p>Lorem ipsum dolor sit amet.</p>
+				<p>Lorem ipsum dolor sit amet.</p>
+				<p>Lorem ipsum dolor sit amet.</p>
+				<p>Lorem ipsum dolor sit amet.</p>
+			</div>
+
+			<div class="center-block">
+				<button type="button" class="btn-edit" value="Edit">
+					<span>Edit</span>
+				</button>
+
+				<button type="button" class="btn-style" value="Style">
+					<span>Style</span>
+				</button>
+			</div>
+
+			<div class="block bottom-block">
+				<div class="edit-block">
+					<textarea class="edit-area" placeholder="" required></textarea>
+
+					<div class="center-block">
+						<button type="button" class="btn-add" value="Add">
+							<span>Add</span>
+						</button>
+
+						<button type="button" class="btn-save" value="Save">
+							<span>Save</span>
+						</button>
+					</div>
+				</div>
+
+				<div class="style-block">
+					<form name="applyStyleForm" id="applyStyleForm" class="style-block">
+
+						<fieldset id="fontSizeFieldset" class="style-fieldset">
+							<legend class="" aria-label="Choose font size">
+								<h2>Font Size</h2>
+							</legend>
+
+							<div class="font-size">
+								<input type="radio" id="fontSize12" name="fontSize" aria-labelledby="fontSizeLabel" required>
+								<label for="fontSize12" id="fontSizeLabel" aria-label="Select font size 12px">
+									<span>12px</span>
+								</label>
+
+								<input type="radio" id="fontSize14" name="fontSize" aria-labelledby="fontSizeLabel" required>
+								<label for="fontSize14" id="fontSizeLabel" aria-label="Select font size 14px">
+									<span>14px</span>
+								</label>
+
+								<input type="radio" id="fontSize16" name="fontSize" aria-labelledby="fontSizeLabel" checked required>
+								<label for="fontSize16" id="fontSizeLabel" aria-label="Select font size 16px">
+									<span>16px</span>
+								</label>
+
+								<input type="radio" id="fontSize18" name="fontSize" aria-labelledby="fontSizeLabel" required>
+								<label for="fontSize18" id="fontSizeLabel" aria-label="Select font size 18px">
+									<span>18px</span>
+								</label>
+
+								<input type="radio" id="fontSize20" name="fontSize" aria-labelledby="fontSizeLabel" required>
+								<label for="fontSize20" id="fontSizeLabel" aria-label="Select font size 20px">
+									<span>20px</span>
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset id="fontFamilyFieldset" class="style-fieldset">
+							<legend class="" aria-label="Select font family">
+								<h2>Font Family</h2>
+							</legend>
+
+							<div class="select-wrapper">
+								<select id="fontFamily" name="fontFamily" class="font-family" required>
+									<option value="" selected disabled hidden><span>Choose option</span></option>
+									<option value="cursive"><span>cursive</span></option>
+									<option value="fantasy"><span>fantasy</span></option>
+									<option value="monospace"><span>monospace</span></option>
+									<option value="sans-serif"><span>sans-serif</span></option>
+								</select>
+							</div>
+						</fieldset>
+
+						<fieldset id="colorStyleFieldset" class="style-fieldset color-style">
+							<legend class="" aria-label="Select color styles">
+								<h2>Color</h2>
+							</legend>
+
+							<div class="start-block">
+								<button type="button" class="btn-text-color" value="Color of text">
+									<span>Text color</span>
+								</button>
+								<button type="button" class="btn-bg-color" value="Background color">
+									<span>Background color</span>
+								</button>
+							</div>
+
+							<div class="colors hide">
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+								<div class="color-box"></div>
+							</div>
+						</fieldset>
+
+						<fieldset id="fontStyleFieldset" class="style-fieldset">
+							<legend class="" aria-label="Select font styles">
+								<h2>Font Style</h2>
+							</legend>
+
+							<div class="font-style">
+								<input type="checkbox" id="boldFontStyle" name="boldFontStyle" aria-labelledby="boldFontStyleLabel"
+									required>
+								<label for="boldFontStyle" id="boldFontStyleLabel" aria-label="Select a bold font">
+									<span>Bold font</span>
+								</label>
+
+								<input type="checkbox" id="cursiveFontStyle" name="cursiveFontStyle"
+									aria-labelledby="cursiveFontStyleLabel" required>
+								<label for="cursiveFontStyle" id="cursiveFontStyleLabel" aria-label="Select a cursive font">
+									<span>Cursive font</span>
+								</label>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>
