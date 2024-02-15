@@ -23,8 +23,8 @@
 	--dark-blue-color: var(--dark-blue, royalblue);
 	--red-color: var(--red, red);
 	--dark-red-color: var(--dark-red, darkred);
-	--green-color: var(--sea-green, green);
-	--dark-green-color: var(--green, darkgreen);
+	--green-color: var(--green, green);
+	--dark-green-color: var(--dark-green, darkgreen);
 	--gray-color: var(--gray, slategray);
 	--dark-gray-color: var(--dark-gray, darkslategray);
 
@@ -43,12 +43,17 @@
 
 	--border-width: 1px;
 	--border-radius: var(--small-spacing);
+	--outline-width: var(--border-width);
 
 	/* FONTS */
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	font-family: "Josefin Sans", sans-serif;
+
+	--body-font-size: 1rem;
+	--body-font-weight: 400;
+	--body-line-height: 1.5;
 }
 
 * {
@@ -71,17 +76,19 @@ body {
 	min-height: 100vh;
 	display: grid;
 	gap: 20px;
+	line-height: var(--body-line-height);
+	vertical-align: middle;
 	color: var(--dark-color);
 	background-color: var(--light-color);
 }
 
 main.container {
-	min-width: 650px;
+	min-width: 700px;
 	width: 70%;
 	margin: auto;
 }
 
-section.first {
+section.first-section {
 	width: auto;
 	display: grid;
 	gap: 20px;
@@ -118,9 +125,15 @@ div.edit-block {
 
 div.font-size,
 div.font-style {
+	width: auto;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	gap: 10px;
+}
+
+input:is([type="radio"], [type="checkbox"]) {
+	vertical-align: middle;
 }
 
 form {
@@ -130,17 +143,9 @@ form {
 	gap: 10px;
 }
 
-form>fieldset {
+fieldset {
 	display: contents;
-}
-
-label,
-input:not:is([type="radio"], [type="checkbox"]) {
-	width: 100%;
-	height: 100%;
-	display: block;
-	font-family: inherit;
-	font-size: 100%;
+	padding: 10px;
 }
 
 select {
@@ -152,6 +157,43 @@ select {
 	word-break: normal;
 	appearance: none;
 	border-radius: var(--border-radius);
+	box-shadow: inset 1px 1px 5px var(--light-gray-color);
+}
+
+span {
+	display: inline-block;
+}
+
+input[type="checkbox"] {
+	appearance: none;
+}
+
+input[type="checkbox"] {
+	position: relative;
+	width: 1.35em;
+	height: 1.35em;
+	border: var(--border-width) solid var(--border-color);
+	/* vertical-align: middle; */
+	border-radius: var(--border-radius);
+	color: var(--dark-blue-color);
+	background-color: var(--light-color);
+}
+
+input[type="checkbox"]::before {
+	content: "✔";
+	position: absolute;
+	font-size: 1.25em;
+	top: -3.5px;
+	left: 1.5px;
+	visibility: hidden;
+}
+
+input[type="checkbox"]:checked {
+	border: var(--border-width) solid var(--dark-blue-color);
+}
+
+input[type="checkbox"]:checked::before {
+	visibility: visible;
 }
 
 select#fontFamily.font-family {
@@ -188,7 +230,8 @@ textarea.edit-area {
 	resize: none;
 }
 
-textarea.edit-area:focus-visible {
+:focus-visible,
+textarea:focus-visible {
 	border: var(--border-width) solid var(--border-color);
 	outline: var(--blue-color) solid 2px;
 }
@@ -205,7 +248,7 @@ textarea.edit-area:focus-visible {
 	border-radius: var(--border-radius);
 }
 
-.color-box {
+div.color-box {
 	width: 48px;
 	height: 48px;
 	border-radius: var(--border-radius);
@@ -213,48 +256,12 @@ textarea.edit-area:focus-visible {
 	transition: all 0.3s ease;
 }
 
-.color-box:hover {
+div.color-box:hover {
 	width: 48px;
 	height: 48px;
 	border-radius: var(--border-radius);
-	border: var(--border-width) solid var(--border-color);
+	outline: var(--border-width) solid var(--border-color);
 }
-
-/* .color-box:nth-of-type(1) {
-	background-color: black;
-}
-
-.color-box:nth-of-type(2) {
-	background-color: gray;
-}
-
-.color-box:nth-of-type(3) {
-	background-color: white;
-}
-
-.color-box:nth-of-type(4) {
-	background-color: cyan;
-}
-
-.color-box:nth-of-type(5) {
-	background-color: magenta;
-}
-
-.color-box:nth-of-type(6) {
-	background-color: yellow;
-}
-
-.color-box:nth-of-type(7) {
-	background-color: red;
-}
-
-.color-box:nth-of-type(8) {
-	background-color: green;
-}
-
-.color-box:nth-of-type(9) {
-	background-color: blue;
-} */
 
 button {
 	width: 80px;
@@ -276,7 +283,7 @@ button.btn-edit {
 
 button.btn-edit:hover {
 	background-color: var(--dark-orange-color);
-	outline: 1px solid var(--dark-orange-color);
+	outline: var(--outline-width) solid var(--dark-orange-color);
 }
 
 button.btn-style {
@@ -286,7 +293,7 @@ button.btn-style {
 
 button.btn-style:hover {
 	background-color: var(--dark-blue-color);
-	outline: 1px solid var(--dark-blue-color);
+	outline: var(--outline-width) solid var(--dark-blue-color);
 }
 
 button.btn-add {
@@ -296,7 +303,7 @@ button.btn-add {
 
 button.btn-add:hover {
 	background-color: var(--dark-red-color);
-	outline: 1px solid var(--dark-red-color);
+	outline: var(--outline-width) solid var(--dark-red-color);
 }
 
 button.btn-save {
@@ -306,7 +313,7 @@ button.btn-save {
 
 button.btn-save:hover {
 	background-color: var(--dark-green-color);
-	outline: 1px solid var(--dark-green-color);
+	outline: var(--outline-width) solid var(--dark-green-color);
 }
 
 button.btn-text-color,
@@ -321,26 +328,50 @@ button.btn-bg-color {
 button.btn-text-color:hover,
 button.btn-bg-color:hover {
 	background-color: var(--dark-gray-color);
-	outline: 1px solid var(--dark-gray-color);
+	outline: var(--outline-width) solid var(--dark-gray-color);
 }
 
-/* section.first, */
-/* section.second {
+button.btn-create-table,
+button.btn-create-list {
+	width: 100px;
+	width: 50%;
+	height: 100%;
+	padding: 10px;
+	background-color: var(--green-color);
+	transition: all 0.3s ease;
+}
+
+button.btn-create-table:hover,
+button.btn-create-list:hover {
+	background-color: var(--dark-green-color);
+	outline: var(--outline-width) solid var(--dark-green-color);
+}
+
+/* section.first-section, */
+/* section.second-section {
 	display: none;
 } */
 
 /* div.colors, */
 /* div.edit-block, */
-/* div.style-block {
+div.style-block {
 	display: none;
-} */
+}
 
-.hide,
-.hidden,
-.visually-hidden {
+/* .visually-hidden, */
+/* .hidden, */
+.hide {
 	display: none;
 }
 
 .show {
 	display: block;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.cursive {
+	font-style: italic;
 }
