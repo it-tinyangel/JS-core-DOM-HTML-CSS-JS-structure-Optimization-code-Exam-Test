@@ -10,7 +10,7 @@
 
 <body>
 	<main class="container">
-		<section class="first show">
+		<section class="first-section show">
 			<div class="block top-block">
 				<p>Lorem ipsum dolor sit amet.</p>
 				<p>Lorem ipsum dolor sit amet.</p>
@@ -31,8 +31,7 @@
 
 			<div class="block bottom-block">
 				<div class="edit-block">
-					<textarea class="edit-area" placeholder="" required></textarea>
-
+					<textarea id="editArea" name="editArea" class="edit-area" placeholder="" required></textarea>
 					<div class="center-block">
 						<button type="button" class="btn-add" value="Add">
 							<span>Add</span>
@@ -44,106 +43,232 @@
 					</div>
 				</div>
 
-				<div class="style-block">
-					<form name="applyStyleForm" id="applyStyleForm" class="style-block">
+				<form id="applyStyleForm" name="applyStyleForm" class="style-block">
+					<fieldset form="applyStyleForm" id="fontSizeFieldset" name="fontSizeFieldset" class="style-fieldset">
+						<legend for="fontSizeFieldset" id="fontSizeFieldsetLabel">
+							<span>Font Size</span>
+						</legend>
 
-						<fieldset id="fontSizeFieldset" class="style-fieldset">
-							<legend class="" aria-label="Choose font size">
-								<h2>Font Size</h2>
-							</legend>
+						<div class="font-size">
+							<label for="fontSize12" aria-labelledby="fontSizeFieldsetLabel" aria-label="Select font size 12px">
+								<input type="radio" id="fontSize12" name="fontSize" value="12px" required>
+								<span>12px</span>
+							</label>
 
-							<div class="font-size">
-								<input type="radio" id="fontSize12" name="fontSize" aria-labelledby="fontSizeLabel" required>
-								<label for="fontSize12" id="fontSizeLabel" aria-label="Select font size 12px">
-									<span>12px</span>
-								</label>
+							<label for="fontSize14" aria-labelledby="fontSizeFieldsetLabel" aria-label="Select font size 14px">
+								<input type="radio" id="fontSize14" name="fontSize" value="14px" required>
+								<span>14px</span>
+							</label>
 
-								<input type="radio" id="fontSize14" name="fontSize" aria-labelledby="fontSizeLabel" required>
-								<label for="fontSize14" id="fontSizeLabel" aria-label="Select font size 14px">
-									<span>14px</span>
-								</label>
+							<label for="fontSize16" aria-labelledby="fontSizeFieldsetLabel" aria-label="Select font size 16px">
+								<input type="radio" id="fontSize16" name="fontSize" value="16px" required>
+								<span>16px</span>
+							</label>
 
-								<input type="radio" id="fontSize16" name="fontSize" aria-labelledby="fontSizeLabel" checked required>
-								<label for="fontSize16" id="fontSizeLabel" aria-label="Select font size 16px">
-									<span>16px</span>
-								</label>
+							<label for="fontSize18" aria-labelledby="fontSizeFieldsetLabel" aria-label="Select font size 18px">
+								<input type="radio" id="fontSize18" name="fontSize" value="18px" required>
+								<span>18px</span>
+							</label>
 
-								<input type="radio" id="fontSize18" name="fontSize" aria-labelledby="fontSizeLabel" required>
-								<label for="fontSize18" id="fontSizeLabel" aria-label="Select font size 18px">
-									<span>18px</span>
-								</label>
+							<label for="fontSize20" aria-labelledby="fontSizeFieldsetLabel" aria-label="Select font size 20px">
+								<input type="radio" id="fontSize20" name="fontSize" value="20px" required>
+								<span>20px</span>
+							</label>
+						</div>
+					</fieldset>
 
-								<input type="radio" id="fontSize20" name="fontSize" aria-labelledby="fontSizeLabel" required>
-								<label for="fontSize20" id="fontSizeLabel" aria-label="Select font size 20px">
-									<span>20px</span>
-								</label>
-							</div>
-						</fieldset>
+					<fieldset form="applyStyleForm" id="fontFamilyFieldset" name="fontFamilyFieldset" class="style-fieldset">
+						<legend for="fontFamilyFieldset" id="fontFamilyFieldsetLabel">
+							<span>Font Family</span>
+						</legend>
 
-						<fieldset id="fontFamilyFieldset" class="style-fieldset">
-							<legend class="" aria-label="Select font family">
-								<h2>Font Family</h2>
-							</legend>
-
-							<div class="select-wrapper">
+						<div class="select-wrapper">
+							<label for="fontFamily" aria-labelledby="fontFamilyFieldsetLabel" aria-label="Select font family">
 								<select id="fontFamily" name="fontFamily" class="font-family" required>
-									<option value="" selected disabled hidden><span>Choose option</span></option>
-									<option value="cursive"><span>cursive</span></option>
-									<option value="fantasy"><span>fantasy</span></option>
-									<option value="monospace"><span>monospace</span></option>
-									<option value="sans-serif"><span>sans-serif</span></option>
+									<option value="" selected disabled hidden>Choose option</option>
+									<option value="cursive">cursive</option>
+									<option value="fantasy">fantasy</option>
+									<option value="monospace">monospace</option>
+									<option value="sans-serif">sans-serif</option>
 								</select>
-							</div>
-						</fieldset>
+							</label>
+						</div>
+					</fieldset>
 
-						<fieldset id="colorStyleFieldset" class="style-fieldset color-style">
-							<legend class="" aria-label="Select color styles">
-								<h2>Color</h2>
-							</legend>
+					<fieldset form="applyStyleForm" id="colorStyleFieldset" name="colorStyleFieldset"
+						class="style-fieldset color-style">
+						<legend for="colorStyleFieldset" id="colorStyleFieldsetLabel">
+							<span>Colors</span>
+						</legend>
 
-							<div class="start-block">
-								<button type="button" class="btn-text-color" value="Color of text">
-									<span>Text color</span>
-								</button>
-								<button type="button" class="btn-bg-color" value="Background color">
-									<span>Background color</span>
-								</button>
-							</div>
+						<div class="start-block">
+							<button type="button" class="btn-text-color" value="Color of text"
+								aria-labelledby="colorStyleFieldsetLabel">
+								<span>Text color</span>
+							</button>
 
-							<div class="colors hide">
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-								<div class="color-box"></div>
-							</div>
-						</fieldset>
+							<button type="button" class="btn-bg-color" value="Background color"
+								aria-labelledby="colorStyleFieldsetLabel">
+								<span>Background color</span>
+							</button>
+						</div>
 
-						<fieldset id="fontStyleFieldset" class="style-fieldset">
-							<legend class="" aria-label="Select font styles">
-								<h2>Font Style</h2>
-							</legend>
+						<div class="colors hide">
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+							<div class="color-box"></div>
+						</div>
+					</fieldset>
 
-							<div class="font-style">
-								<input type="checkbox" id="boldFontStyle" name="boldFontStyle" aria-labelledby="boldFontStyleLabel"
-									required>
-								<label for="boldFontStyle" id="boldFontStyleLabel" aria-label="Select a bold font">
-									<span>Bold font</span>
-								</label>
+					<fieldset form="applyStyleForm" id="fontStyleFieldset" name="fontStyleFieldset" class="style-fieldset">
+						<legend for="fontStyleFieldset" id="fontStyleFieldsetLabel">
+							<span>Font Style</span>
+						</legend>
 
-								<input type="checkbox" id="cursiveFontStyle" name="cursiveFontStyle"
-									aria-labelledby="cursiveFontStyleLabel" required>
-								<label for="cursiveFontStyle" id="cursiveFontStyleLabel" aria-label="Select a cursive font">
-									<span>Cursive font</span>
-								</label>
-							</div>
-						</fieldset>
-					</form>
+						<div class="font-style">
+							<label for="boldFontStyle" aria-labelledby="fontStyleFieldsetLabel">
+								<input type="checkbox" id="boldFontStyle" name="boldFontStyle" value="Bold font" required>
+								<span>Bold font</span>
+							</label>
+
+							<label for="cursiveFontStyle" aria-labelledby="fontStyleFieldsetLabel">
+								<input type="checkbox" id="cursiveFontStyle" name="cursiveFontStyle" value="Cursive font" required>
+								<span>Cursive font</span>
+							</label>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</section>
+
+		<section class="second-section">
+			<div class="block">
+				<h2>Choose what you want:</h2>
+
+				<div class="start-block">
+					<label for="tableFormSelection">
+						<input type="radio" id="tableFormSelection" name="formSelection" value="Table">
+						<span>Table</span>
+					</label>
+
+					<label for="listFormSelection">
+						<input type="radio" id="listFormSelection" name="formSelection" value="List">
+						<span>List</span>
+					</label>
 				</div>
+
+				<form id="createTableForm" name="createTableForm" class="create-table">
+					<fieldset form="createTableForm" id="countsOfTable" name="countsOfTable" class="create-table">
+						<legend for="countsOfTable" id="countsOfTableLabel" class="visually-hidden"
+							aria-label="Add parameters to create the Table."></legend>
+
+						<label for="CountTR" aria-labelledby="countsOfTableLabel">
+							<span>TR count</span>
+						</label>
+						<input type="text" id="CountTR" name="CountTR" class="table-row" placeholder="Table Rows count" value=""
+							required>
+
+						<label for="CountTD" aria-labelledby="countsOfTableLabel">
+							<span>TD count</span>
+						</label>
+						<input type="text" id="CountTD" name="CountTD" class="table-data" placeholder="Table Data count" value=""
+							required>
+					</fieldset>
+
+					<fieldset form="createTableForm" id="stylesOfTable" name="stylesOfTable" class="create-table">
+						<legend for="stylesOfTable" id="stylesOfTableLabel">
+							<span>Add styles to your table</span>
+						</legend>
+
+						<label for="widthTD" aria-labelledby="stylesOfTableLabel">
+							<span>Width of TD</span>
+						</label>
+						<input type="text" id="widthTD" name="widthTD" class="width-height" placeholder="Width of Table Data"
+							value="" required>
+
+						<label for="heightTD" aria-labelledby="stylesOfTableLabel">
+							<span>Height of TD</span>
+						</label>
+						<input type="text" id="heightTD" name="heightTD" class="width-height" placeholder="Height of Table Data"
+							value="" required>
+					</fieldset>
+
+					<fieldset form="createTableForm" id="stylesOfTDBorder" name="stylesOfTDBorder" class="create-table">
+						<legend for="stylesOfTDBorder" id="stylesOfTDBorderLabel" class="visually-hidden"
+							aria-label="Add styles to the Table border.">
+						</legend>
+
+						<label for="widthTDBorder" aria-labelledby="stylesOfTDBorderLabel">
+							<span>Width of TD border</span>
+						</label>
+						<input type="text" id="widthTDBorder" class="style-border" name="widthTDBorder"
+							placeholder="Width of TD border" value="" required>
+
+						<label for="typeTDBorder" aria-labelledby="stylesOfTDBorderLabel">
+							<span>Type of TD border</span>
+						</label>
+
+						<select id="typeTDBorder" name="typeTDBorder" class="style-border" aria-labelledby="stylesOfTDBorderLabel"
+							required>
+							<option value="" selected disabled hidden>Choose option</option>
+							<option value="solid">solid</option>
+							<option value="dotted">dotted</option>
+							<option value="dashed">dashed</option>
+						</select>
+
+						<label for="colorTDBorder" aria-labelledby="stylesOfTDBorderLabel">
+							<span>Color of TD border</span>
+						</label>
+
+						<select id="colorTDBorder" name="colorTDBorder" class="style-border" aria-labelledby="stylesOfTDBorderLabel"
+							required>
+							<option value="" selected disabled hidden>Choose option</option>
+							<option value="black">black</option>
+							<option value="red">red</option>
+							<option value="blue">blue</option>
+							<option value="green">green</option>
+						</select>
+					</fieldset>
+
+					<button type="button" class="btn-create-table" value="Create table">
+						<span>Create table</span>
+					</button>
+				</form>
+
+				<form id="listForm" name="listForm" class="create-list">
+					<fieldset form="listForm" id="createList" name="createList" class="create-list">
+						<legend for="createList" id="createListLabel" class="visually-hidden"
+							aria-label="Add parameters to create the List."></legend>
+
+						<label for="listCount" aria-labelledby="createListLabel">
+							<span>LI count</span>
+						</label>
+						<input type="text" id="listCount" class="list-count" name="listCount" placeholder="List Item count"
+							required>
+
+						<label for="listTypeMark" aria-labelledby="createListLabel">
+							<span>Type of marks</span>
+						</label>
+
+						<select id="listTypeMark" name="listTypeMark" class="listTypeMark" aria-labelledby="createListLabel"
+							required>
+							<option value="" selected disabled hidden>Choose option</option>
+							<option value="circle">circle</option>
+							<option value="disc">disc</option>
+							<option value="square">square</option>
+						</select>
+					</fieldset>
+
+					<button type="button" class="btn-create-list" value="Create list">
+						<span>Create list</span>
+					</button>
+				</form>
 			</div>
 		</section>
 	</main>
