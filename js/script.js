@@ -1,61 +1,102 @@
 document.addEventListener("DOMContentLoaded", function () {
 	const getS = selector => document.querySelector(selector);
-	// const getAllS = selector => document.querySelectorAll(selector);
+	const getID = (selector) => document.getElementById(selector);
+
 	const applyStyleForm = document.forms['applyStyleForm'];
-	
+	const createForm = document.forms['createForm'];
+	const createTableForm = document.forms['createTableForm'];
+	const createListForm = document.forms['createListForm'];
 	const colors = ['black', 'gray', 'white', 'cyan', 'magenta', 'yellow', 'red', 'green', 'blue'];
 
-	getS('.btn-edit').addEventListener('click', () => {
-		getS('.edit-block').classList.add('show');
-		getS('.style-block').classList.remove('show');
-		getS('.edit-area').value = getS('.top-block').innerHTML;
+	getID('editButton').addEventListener('click', () => {
+		getID('applyStyleForm').classList.add('hide');
+		getID('editBlock').classList.remove('hide');
+
+		getID('editArea').value = getID('topBlock').innerHTML;
 	});
 
-	getS('.btn-style').addEventListener('click', () => {
-		getS('.style-block').classList.add('show');
-		getS('.edit-block').classList.remove('show');
+	getID('styleButton').addEventListener('click', () => {
+		getID('editBlock').classList.add('hide');
+		getID('applyStyleForm').classList.remove('hide');
 	})
 
-	getS('.btn-save').addEventListener('click', () => {
-		getS('.edit-block').classList.remove('show');
-		getS('.top-block').innerHTML = getS('textarea.edit-area').value;
+	getID('saveButton').addEventListener('click', () => {
+		getID('editBlock').classList.remove('show');
+		getID('topBlock').innerHTML = getS('textagetIDea#editArea').value;
 	})
-
-	// getAllS('input[name="fontSize"]').forEach(function (radio) {
-	// 	radio.addEventListener('click', function () {
-	// 		getS('.top-block').style.fontSize = event.target.value;
-	// 	});
-	// });
 
 	applyStyleForm.elements['fontSize'].forEach(function (radio) {
 		radio.addEventListener('click', function () {
-			getS('.top-block').style.fontSize = event.target.value;
+			getID('topBlock').style.fontSize = event.target.value;
 		});
 	});
 
 	applyStyleForm.elements['fontFamily'].addEventListener('click', () => {
-		getS('.top-block').style.fontFamily = event.target.value;
+		getID('topBlock').style.fontFamily = event.target.value;
 	})
 
-	getS('.btn-text-color').addEventListener('click', () => {
-		getS('.colors').classList.remove('hide');
-		for (let i = 0; i < getS('.colors').children.length; i++) {
-			getS('.colors').children[i].style.backgroundColor = colors[i];
-			getS('.colors').children[i].onclick = function () {
-				console.log('textcolor');
-				getS('.top-block').style.color = this.style.backgroundColor;
+	getID('textColorButton').addEventListener('click', () => {
+		getS('.colors-box').classList.toggle('hide');
+		for (let i = 0; i < getS('.colors-box').children.length; i++) {
+			getS('.colors-box').children[i].style.backgroundColor = colors[i];
+			getS('.colors-box').children[i].onclick = function () {
+				getID('topBlock').style.color = this.style.backgroundColor;
+			}
+		}
+
+	});
+
+	getID('bgColorButton').addEventListener('click', () => {
+		getS('.colors-box').classList.toggle('hide');
+		for (let i = 0; i < getS('.colors-box').children.length; i++) {
+			getS('.colors-box').children[i].style.backgroundColor = colors[i];
+			getS('.colors-box').children[i].onclick = function () {
+				getID('topBlock').style.backgroundColor = this.style.backgroundColor;
 			}
 		}
 	});
 
-	getS('.btn-bg-color').addEventListener('click', () => {
-		getS('.colors').classList.remove('hide');
-		for (let i = 0; i < getS('.colors').children.length; i++) {
-			getS('.colors').children[i].style.backgroundColor = colors[i];
-			getS('.colors').children[i].onclick = function () {
-				console.log('backgroundColor');
-				getS('.top-block').style.backgroundColor = this.style.backgroundColor;
-			}
+	applyStyleForm.elements['boldFontStyle'].addEventListener('click', (event) => {
+		if (event.target.checked) {
+			getID('topBlock').classList.add('bold');
+		} else {
+			getID('topBlock').classList.remove('bold');
 		}
 	});
+
+	applyStyleForm.elements['cursiveFontStyle'].addEventListener('click', (event) => {
+		if (event.target.checked) {
+			getID('topBlock').classList.add('cursive');
+		} else {
+			getID('topBlock').classList.remove('cursive');
+		}
+	});
+
+	getID('addButton').addEventListener('click', () => {
+		getID('firstSection').style.display = 'none';
+		getID('secondSection').classList.remove('hide');
+	});
+
+	createForm.elements['tableFormSelection'].addEventListener('click', () => {
+		getID('createListForm').classList.add('hide');
+		createTableForm.classList.remove('hide');
+
+	});
+
+	createForm.elements['listFormSelection'].addEventListener('click', () => {
+		getID('createTableForm').classList.add('hide');
+		createListForm.classList.remove('hide');
+	});
+
+	getID('createTableButton').addEventListener('click', () => {
+		getID('firstSection').style.display = 'flex';
+		getID('secondSection').classList.add('hide');
+	});
+
+
+	getID('createListButton').addEventListener('click', () => {
+		getID('firstSection').style.display = 'flex';
+		getID('secondSection').classList.add('hide');
+	});
+
 });
