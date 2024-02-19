@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	})
 
 	getID('saveButton').addEventListener('click', () => {
-		getID('editBlock').classList.remove('show');
-		getID('topBlock').innerHTML = getS('textagetIDea#editArea').value;
+		getID('editBlock').classList.add('hide');
+
+		getID('topBlock').innerHTML = getID('editArea').value;
 	})
 
 	applyStyleForm.elements['fontSize'].forEach(function (radio) {
@@ -35,19 +36,24 @@ document.addEventListener("DOMContentLoaded", function () {
 		getID('topBlock').style.fontFamily = event.target.value;
 	})
 
+	function showHide(button) {
+		button.classList.toggle("hide");
+	}
+
 	getID('textColorButton').addEventListener('click', () => {
-		getS('.colors-box').classList.toggle('hide');
+		showHide(getS('.colors-box'));
+
 		for (let i = 0; i < getS('.colors-box').children.length; i++) {
 			getS('.colors-box').children[i].style.backgroundColor = colors[i];
 			getS('.colors-box').children[i].onclick = function () {
 				getID('topBlock').style.color = this.style.backgroundColor;
 			}
 		}
-
 	});
 
 	getID('bgColorButton').addEventListener('click', () => {
-		getS('.colors-box').classList.toggle('hide');
+		showHide(getS('.colors-box'));
+
 		for (let i = 0; i < getS('.colors-box').children.length; i++) {
 			getS('.colors-box').children[i].style.backgroundColor = colors[i];
 			getS('.colors-box').children[i].onclick = function () {
@@ -91,12 +97,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	getID('createTableButton').addEventListener('click', () => {
 		getID('firstSection').style.display = 'flex';
 		getID('secondSection').classList.add('hide');
+		createTableForm.reset();
+		createForm.reset();
+		createTableForm.classList.add('hide');
+		createListForm.classList.add('hide');
 	});
-
 
 	getID('createListButton').addEventListener('click', () => {
 		getID('firstSection').style.display = 'flex';
 		getID('secondSection').classList.add('hide');
+		createListForm.reset();
+		createForm.reset();
+		createTableForm.classList.add('hide');
+		createListForm.classList.add('hide');
 	});
-
 });
