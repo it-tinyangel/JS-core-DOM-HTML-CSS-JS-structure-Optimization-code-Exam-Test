@@ -31,7 +31,7 @@
 
 			<div class="block">
 				<div id="editBlock" class="edit-block hide">
-					<textarea id="editArea" name="editArea" required></textarea>
+					<textarea id="contentHTML" name="contentHTML" readonly required></textarea>
 
 					<div class="btn-edit-box">
 						<button type="button" id="addButton" class="btn btn-add" value="Add">
@@ -179,19 +179,27 @@
 							aria-label="Add parameters to create the Table."></legend>
 
 						<div class="box">
-							<label for="CountTR" aria-labelledby="countsOfTableLabel">
-								<span>TR count</span>
+							<label for="tableCaption" aria-labelledby="countsOfTableLabel">
+								<span>Table caption:</span>
 							</label>
 
-							<input type="text" id="CountTR" name="CountTR" placeholder="Table Rows count" required>
+							<input type="text" id="tableCaption" name="tableCaption" placeholder="Table caption" required>
 						</div>
 
 						<div class="box">
-							<label for="CountTD" aria-labelledby="countsOfTableLabel">
-								<span>TD count</span>
+							<label for="rowsTable" aria-labelledby="countsOfTableLabel">
+								<span>Table rows:</span>
 							</label>
 
-							<input type="text" id="CountTD" name="CountTD" placeholder="Table Data count" required>
+							<input type="number" id="rowsTable" name="rowsTable" min="1" step="1" placeholder="Table rows" required>
+						</div>
+
+						<div class="box">
+							<label for="colsTable" aria-labelledby="countsOfTableLabel">
+								<span>Table cols:</span>
+							</label>
+
+							<input type="number" id="colsTable" name="colsTable" min="1" step="1" placeholder="Table cols" required>
 						</div>
 					</fieldset>
 
@@ -200,20 +208,21 @@
 							<span class="small-label">Add styles to your table:</span>
 						</legend>
 
-						<div class="box">
-							<label for="widthTD" aria-labelledby="stylesOfTableLabel">
-								<span>Width of TD</span>
+						<div class="box quainty">
+							<label for="cellWidth" aria-labelledby="stylesOfTableLabel">
+								<span>Cell width (px):</span>
 							</label>
 
-							<input type="text" id="widthTD" name="widthTD" placeholder="Width of Table Data" required>
+							<input type="number" id="cellWidth" name="cellWidth" min="1" step="1" placeholder="Cell width" required>
 						</div>
 
 						<div class="box">
-							<label for="heightTD" aria-labelledby="stylesOfTableLabel">
-								<span>Height of TD</span>
+							<label for="cellHeight" aria-labelledby="stylesOfTableLabel">
+								<span>Cell height (px):</span>
 							</label>
 
-							<input type="text" id="heightTD" name="heightTD" placeholder="Height of Table Data" required>
+							<input type="number" id="cellHeight" name="cellHeight" min="1" step="1" placeholder="Cell height"
+								required>
 						</div>
 					</fieldset>
 
@@ -223,38 +232,38 @@
 						</legend>
 
 						<div class="box">
-							<label for="widthTDBorder" aria-labelledby="stylesOfTDBorderLabel">
-								<span>Width of border</span>
+							<label for="cellBorderWidth" aria-labelledby="stylesOfTDBorderLabel">
+								<span>Cell border width (px):</span>
 							</label>
+							<input type="number" id="cellBorderWidth" name="cellBorderWidth" min="0" step="1"
+								placeholder="Width of border" required>
 
-							<input type="text" id="widthTDBorder" name="widthTDBorder" placeholder="Width:" required>
-
-							<label for="typeTDBorder" aria-labelledby="stylesOfTDBorderLabel">
-								<span>Type of border</span>
+							<label for="cellBorderType"" aria-labelledby=" stylesOfTDBorderLabel">
+								<span>Cell border type:</span>
 							</label>
-
 							<div class="select-box">
-								<select id="typeTDBorder" name="typeTDBorder" aria-labelledby="stylesOfTDBorderLabel" required>
+								<select id="cellBorderType"" name=" cellBorderType"" aria-labelledby="stylesOfTDBorderLabel" required>
 									<option selected hidden>Choose</option>
 									<option value="solid">solid</option>
 									<option value="dotted">dotted</option>
 									<option value="dashed">dashed</option>
+									<option value="double">double</option>
 								</select>
 							</div>
 
-							<label for="colorTDBorder" aria-labelledby="stylesOfTDBorderLabel">
-								<span>Color of border</span>
+							<label for="cellBorderColor" aria-labelledby="stylesOfTDBorderLabel">
+								<span>Cell border color:</span>
 							</label>
-
-							<div class="select-box">
-								<select id="colorTDBorder" name="colorTDBorder" aria-labelledby="stylesOfTDBorderLabel" required>
+							<!-- <div class="select-box">
+								<select id="cellBorderColor" name="cellBorderColor" aria-labelledby="stylesOfTDBorderLabel" required>
 									<option selected hidden>Choose</option>
 									<option value="black">black</option>
 									<option value="red">red</option>
 									<option value="blue">blue</option>
 									<option value="green">green</option>
 								</select>
-							</div>
+							</div> -->
+							<input type="color" id="cellBorderColor" name="cellBorderColor" value="#FF0000">
 						</div>
 					</fieldset>
 
@@ -269,20 +278,21 @@
 							aria-label="Add parameters to create the List."></legend>
 
 						<div class="box">
-							<label for="listCount" aria-labelledby="createListLabel">
-								<span>LI count</span>
+							<label for="ListItemsCount" aria-labelledby="createListLabel">
+								<span>Count of List Items:</span>
 							</label>
 
-							<input type="text" id="listCount" name="listCount" placeholder="List Item count" required>
+							<input type="number" id="ListItemsCount" name="ListItemsCount" min="1" step="1"
+								placeholder="List Items count" required>
 						</div>
 
 						<div class="box">
-							<label for="listTypeMark" aria-labelledby="createListLabel">
-								<span>Type of marks</span>
+							<label for="ListItemsTypeMark" aria-labelledby="createListLabel">
+								<span>Type of marks:</span>
 							</label>
 
 							<div class="select-box">
-								<select id="listTypeMark" name="listTypeMark" aria-labelledby="createListLabel" required>
+								<select id="ListItemsTypeMark" name="ListItemsTypeMark" aria-labelledby="createListLabel" required>
 									<option selected hidden>Choose</option>
 									<option value="circle">circle</option>
 									<option value="disc">disc</option>
